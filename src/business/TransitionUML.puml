@@ -1,0 +1,35 @@
+@startuml
+
+package business {
+    class Transition {
+        - guardText: String
+        - globalClock: long
+        + Transition()
+        + Transition(id: String)
+        + Transition(id: String, guardText: String)
+        + fire(gui: GUI, globalClock: long): void
+        + enabled(time: long): boolean
+        + evaluate(): boolean
+        + execute(): TokenSet
+        + getTokenSet(): TokenSet
+        + getGuardText(): String
+        + setGuardText(guardText: String): void
+        + getGlobalClock(): long
+    }
+
+    interface Inscription {
+        + evaluate(): boolean
+        + execute(): TokenSet
+        + getTokenSet(): TokenSet
+    }
+
+    class NetObject {
+        + id: String
+        -- // other methods and attributes
+    }
+
+    Transition --|> NetObject
+    Transition ..|> Inscription
+}
+
+@enduml
