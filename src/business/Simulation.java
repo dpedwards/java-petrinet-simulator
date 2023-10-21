@@ -6,30 +6,36 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
+
 import presentation.FrmViewSource;
 import presentation.GUI;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * Represents a simulation thread that runs a Petri Net simulation.
  */
 public class Simulation extends Thread {
 
-    protected boolean step = false;
-    protected boolean paused = false;
-    protected boolean stop = false;
-    /** Time delay between a transition is fired */
+    protected boolean step = false; // Flag for step-by-step execution
+    protected boolean paused = false; // Flag for pausing the simulation
+    protected boolean stop = false; // Flag for stopping the simulation
+    /** Time delay between firing a transition */
     public static int DELAY = 0;
     /** Default time delay between each transition firing process */
     public static int COMPONENTDELAY = 100;
-    protected GUI gui;
+    protected GUI gui; // Reference to the GUI for user interaction
 
-    /** Initializes Simulation. */
+    /** Initializes a new Simulation instance.
+     *
+     * @param step Flag for step-by-step execution.
+     * @param gui Reference to the GUI.
+     */
     public Simulation(boolean step, GUI gui) {
         this.step = step;
         this.gui = gui;
         NetClass n = new NetClass();
+
         try {
             n.compile(n.generateNetSource());
         } catch (Exception e) {
@@ -45,33 +51,37 @@ public class Simulation extends Thread {
         while (!isFinished() && !stop) {
             fireTransition();
         }
+
         if (stop) {
             this.gui.getJTextArea1().append("Stopped.\n");
         } else {
             this.gui.getJTextArea1().append("Deadlock.\n");
         }
+
         this.gui.getJTextArea1().setCaretPosition(this.gui.getJTextArea1().getText().length());
     }
 
-    /** Checks whether the Simulation has ended */
+    /** Checks whether the simulation has finished. */
     public boolean isFinished() {
         return Global.petriNet.isDead();
     }
 
-    /** Fires a single transition of the enabled transition list */
+    /** Fires a single transition from the enabled transitions list. */
     protected void fireTransition() {
         enabledTransitionList();
+
         if (!this.enabledTransitionList().isEmpty()) {
             getRandomTransition().fire(this.gui, 0);
 
-                pauseResumeSimulation();
-            
+            pauseResumeSimulation();
         }
     }
 
+    /** Pauses or resumes the simulation based on the step flag and user interaction. */
     public synchronized void pauseResumeSimulation() {
         if (step && !stop) {
             paused = true;
+
             try {
                 synchronized (this) {
                     this.wait();
@@ -87,24 +97,27 @@ public class Simulation extends Thread {
         }
     }
 
-    /** Returns a random transition from the enabled transition list */
+    /** Returns a random transition from the enabled transitions list. */
     public Transition getRandomTransition() {
-        ArrayList enabledTransitions = this.enabledTransitionList();
+        ArrayList<Transition> enabledTransitions = this.enabledTransitionList();
         Random generator = new Random();
         int rand = generator.nextInt(enabledTransitions.size());
         return (Transition) enabledTransitions.get(rand);
     }
 
-    /** Returns a list of enabled transitions */
-    public ArrayList enabledTransitionList() {
-        Iterator it = Global.petriNet.getTransitions().iterator();
-        ArrayList enabledTransitions = new ArrayList();
+    /** Returns a list of enabled transitions. */
+    public ArrayList<Transition> enabledTransitionList() {
+        Iterator<Transition> it = Global.petriNet.getTransitions().iterator();
+        ArrayList<Transition> enabledTransitions = new ArrayList<>();
+        
         while (it.hasNext()) {
             Transition transition = (Transition) it.next();
+            
             if (transition.enabled(0)) {
                 enabledTransitions.add(transition);
             }
         }
+        
         return enabledTransitions;
     }
 

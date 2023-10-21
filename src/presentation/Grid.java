@@ -6,8 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * Represents a grid that can be drawn on a graphical surface.
  */
 public class Grid {
 
@@ -26,20 +25,33 @@ public class Grid {
     /** Foreground grid.*/
     private GeneralPath foregroundGrid;
 
-    /** Constructor for a new Grid given a width and height.*/
+    /**
+     * Constructor for a new Grid given a width and height.
+     *
+     * @param width  The width of the grid.
+     * @param height The height of the grid.
+     */
     public Grid(int width, int height) {
         this.width = width;
         this.height = height;
     }
 
-    /** Generates a new grid with a predefined number of columns.*/
+    /**
+     * Generates a new grid with a predefined number of columns.
+     *
+     * @param numCells The number of cells (columns) in the grid.
+     * @return A GeneralPath representing the grid.
+     */
     public GeneralPath generateGrid(int numCells) {
         GeneralPath grid = new GeneralPath();
+        
+        // Draw vertical lines
         for (float i = 0; i <= width; i += cellSize / numCells) {
             grid.moveTo(i, 2);
             grid.lineTo(i, height);
         }
 
+        // Draw horizontal lines
         for (float i = 0; i <= height; i += cellSize / numCells) {
             grid.moveTo(2, i);
             grid.lineTo(width, i);
@@ -48,14 +60,20 @@ public class Grid {
         return grid;
     }
 
-    /** Generates the background and foreground grids.*/
+    /**
+     * Generates and draws the background and foreground grids.
+     *
+     * @param g2 The Graphics2D context to draw on.
+     */
     public void drawGrid(Graphics2D g2) {
+        // Generate the background grid if it's null
         if (backgroundGrid == null) {
             backgroundGrid = generateGrid(5);
         }
         g2.setPaint(strongColor);
         g2.draw(backgroundGrid);
 
+        // Generate the foreground grid if it's null
         if (foregroundGrid == null) {
             foregroundGrid = generateGrid(1);
         }
@@ -63,3 +81,4 @@ public class Grid {
         g2.draw(foregroundGrid);
     }
 }
+

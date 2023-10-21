@@ -60,18 +60,19 @@ public class NetClass {
             this.netSource.append("  ").append(Global.petriNet.getDeclarationText()).append(EOL);
         }
 
-        // Places
-        ArrayList places = Global.petriNet.getPlaces();
+        // Places declaration
+        ArrayList<Place> places = Global.petriNet.getPlaces();
         if (!places.isEmpty()) {
             this.netSource.append(EOL).append("  /** Places declaration. */").append(EOL);
-            for (int i = 0; i < places.size(); i++) {
-                Place place = (Place) places.get(i);
-                this.netSource.append("  private Place ").append(place.getId()).append(" = new Place(\"" + place.getId() + "\");").append(EOL);
+            
+            for (Place place : places) {
+                String placeId = place.getId();
+                this.netSource.append("  private Place ").append(placeId).append(" = new Place(\"").append(placeId).append("\");").append(EOL);
             }
         }
 
-        // Transition
-        ArrayList transitions = Global.petriNet.getTransitions();
+        // Transitions declaration
+        ArrayList<Transition> transitions = Global.petriNet.getTransitions();
         if (!transitions.isEmpty()) {
             this.netSource.append(EOL).append("  /** Transitions declaration. */").append(EOL);
             for (int i = 0; i < transitions.size(); i++) {
@@ -84,8 +85,8 @@ public class NetClass {
             }
         }
 
-        // Input Arcs
-        ArrayList inputArcs = Global.petriNet.getInputArcs();
+        // Input Arcs declaration
+        ArrayList<InputArc> inputArcs = Global.petriNet.getInputArcs();
         if (!inputArcs.isEmpty()) {
             this.netSource.append(EOL).append("  /** Input Arcs declaration. */").append(EOL);
             for (int i = 0; i < inputArcs.size(); i++) {
