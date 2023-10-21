@@ -6,113 +6,166 @@ import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * An abstract class representing a basic figure with position, label, and appearance properties.
  */
 public abstract class AbstractFigure {
 
-    /** Coords of the abstract figure  */
+    /** Coordinates of the abstract figure */
     protected Point2D position;
-    /** Coords of the offset  */
+    /** Coordinates of the offset */
     private Point2D offset;
-    /** Text figure assigned to this Figure*/
+    /** Text figure assigned to this Figure */
     protected TextFigure label;
-    /** Background color of the abstract figure  */
+    /** Background color of the abstract figure */
     protected Color fillColor = new Color(255, 255, 255);
-    /** Stroke color of the abstract figure  */
+    /** Stroke color of the abstract figure */
     protected Color strokeColor = new Color(0, 0, 0);
-    /** Color of the figure when selected  */
+    /** Color of the figure when selected */
     protected Color selectedColor = new Color(153, 153, 255);
-    /** Color of the figure when highlighted  */
+    /** Color of the figure when highlighted */
     protected Color highlightedColor = new Color(115, 230, 0);
-    /** False if the figure is NOT selected. True otherwhise  */
+    /** Indicates whether the figure is selected (true) or not (false) */
     protected boolean selected = false;
-    /** False if the figure is NOT highlighted. True otherwhise  */
+    /** Indicates whether the figure is highlighted (true) or not (false) */
     protected boolean highlighted = false;
-    /** Check if a given point is contained by this figure*/
+
+    /**
+     * Checks if a given point is contained by this figure.
+     *
+     * @param position The point to check for containment.
+     * @return true if the point is contained within the figure, false otherwise.
+     */
     public abstract boolean contains(Point2D position);
-    /** Draws the full figure */
+
+    /**
+     * Draws the full figure.
+     *
+     * @param g The graphics context to use for drawing.
+     */
     public abstract void draw(java.awt.Graphics2D g);
-    /** Paint the interior of the figure*/
+
+    /**
+     * Paints the interior of the figure.
+     *
+     * @param g The graphics context to use for filling.
+     */
     public abstract void drawFill(java.awt.Graphics2D g);
-    /** Paint the stroke of the figure*/
+
+    /**
+     * Paints the stroke of the figure.
+     *
+     * @param g The graphics context to use for the stroke.
+     */
     public abstract void drawStroke(java.awt.Graphics2D g);
 
+    /**
+     * Returns the unique element ID of this figure.
+     *
+     * @return The element ID as a String.
+     */
     public abstract String getElementId();
-    
+
+    /**
+     * Sets the element ID of this figure.
+     *
+     * @param id The element ID to set.
+     */
     public abstract void setElementId(String id);
-    /** Return the bounds of the shape that represents this figure*/
+
+    /**
+     * Returns the bounds of the shape that represents this figure.
+     *
+     * @return The bounding shape as a RectangularShape.
+     */
     public abstract RectangularShape getBounds();
 
     /**
-     * @return the label
+     * Returns the label associated with this figure.
+     *
+     * @return The label as a TextFigure.
      */
     public TextFigure getLabel() {
         return label;
     }
 
     /**
-     * @param label the label to set
+     * Sets the label associated with this figure.
+     *
+     * @param label The label to set.
      */
     public void setLabel(TextFigure label) {
         this.label = label;
     }
 
     /**
-     * @return the position
+     * Returns the position (coordinates) of this figure.
+     *
+     * @return The position as a Point2D.
      */
     public Point2D getPosition() {
         return position;
     }
 
-
     /**
-     * @param position the position to set
+     * Sets the position (coordinates) of this figure.
+     *
+     * @param position The position to set.
      */
     public void setPosition(Point2D position) {
         this.position = position;
     }
 
     /**
-     * @return the selected
+     * Checks if the figure is currently selected.
+     *
+     * @return true if the figure is selected, false otherwise.
      */
     public boolean isSelected() {
         return selected;
     }
 
     /**
-     * @param selected the selected to set
+     * Sets the selection status of the figure.
+     *
+     * @param selected true to select the figure, false to deselect.
      */
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
 
     /**
-     * @return the highlighted
+     * Checks if the figure is currently highlighted.
+     *
+     * @return true if the figure is highlighted, false otherwise.
      */
     public boolean isHighlighted() {
         return highlighted;
     }
 
     /**
-     * @param highlighted the highlighted to set
+     * Sets the highlighting status of the figure.
+     *
+     * @param highlighted true to highlight the figure, false to unhighlight.
      */
     public void setHighlighted(boolean highlighted) {
         this.highlighted = highlighted;
     }
 
     /**
-     * @return the offset
+     * Returns the offset (coordinates) of this figure.
+     *
+     * @return The offset as a Point2D.
      */
     public Point2D getOffset() {
         return offset;
     }
 
     /**
-     * @param offset the offset to set
+     * Sets the offset (coordinates) of this figure.
+     *
+     * @param offset The offset to set.
      */
     public void setOffset(Point2D offset) {
         this.offset = offset;
     }
-
 }

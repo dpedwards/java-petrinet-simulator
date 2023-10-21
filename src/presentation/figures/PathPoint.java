@@ -3,14 +3,13 @@ package presentation.figures;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RectangularShape;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * This class represents a point on a path. It extends AbstractFigure and provides methods
+ * for drawing and interacting with path points.
  */
 public class PathPoint extends AbstractFigure {
 
@@ -20,17 +19,35 @@ public class PathPoint extends AbstractFigure {
     private Rectangle2D rectangle;
     private String id;
 
+    /**
+     * Constructor to create a PathPoint with the specified position and ID.
+     *
+     * @param point The position (coordinates) of the PathPoint.
+     * @param id    The unique identifier of the PathPoint.
+     */
     public PathPoint(Point2D point, String id) {
         point = new Point2D.Double((int) point.getX(), (int) point.getY());
         this.position = point;
         this.id = id;
     }
 
+    /**
+     * Check if a given point is contained within this PathPoint.
+     *
+     * @param position The point to check for containment.
+     * @return True if the given point is inside this PathPoint, false otherwise.
+     */
     @Override
     public boolean contains(Point2D position) {
         return getBounds().contains(position);
     }
 
+    /**
+     * Check if this PathPoint is equal to another object.
+     *
+     * @param obj The object to compare to this PathPoint.
+     * @return True if the objects are equal (have the same ID and position), false otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof PathPoint)) {
@@ -44,6 +61,11 @@ public class PathPoint extends AbstractFigure {
         }
     }
 
+    /**
+     * Draw this PathPoint on a graphics context.
+     *
+     * @param g The Graphics2D context to draw on.
+     */
     @Override
     public void draw(Graphics2D g) {
         if (selected) {
@@ -53,15 +75,24 @@ public class PathPoint extends AbstractFigure {
         }
     }
 
+    /**
+     * Draw the filled shape of this PathPoint.
+     *
+     * @param g The Graphics2D context to draw on.
+     */
     @Override
     public void drawFill(Graphics2D g) {
         g.setPaint(fillColor);
         g.fill(rectangle);
         g.setPaint(new Color(0, 0, 0));
         g.fill(new Rectangle2D.Double(position.getX() - POINTSIZE / 2 + 2, position.getY() - POINTSIZE / 2 + 2, POINTSIZE - 3, POINTSIZE - 3));
-
     }
 
+    /**
+     * Draw the stroke (outline) of this PathPoint.
+     *
+     * @param g The Graphics2D context to draw on.
+     */
     @Override
     public void drawStroke(Graphics2D g) {
         g.setStroke(new java.awt.BasicStroke(1f));
@@ -69,16 +100,31 @@ public class PathPoint extends AbstractFigure {
         g.draw(rectangle);
     }
 
+    /**
+     * Set the unique identifier (ID) of this PathPoint.
+     *
+     * @param id The new ID to set for this PathPoint.
+     */
     @Override
     public void setElementId(String id) {
         this.id = id;
     }
 
+    /**
+     * Get the bounding shape of this PathPoint.
+     *
+     * @return A Rectangle2D representing the bounding shape of this PathPoint.
+     */
     @Override
     public RectangularShape getBounds() {
         return new Rectangle2D.Double(position.getX() - POINTSIZE / 2, position.getY() - POINTSIZE / 2, POINTSIZE, POINTSIZE);
     }
 
+    /**
+     * Get the unique identifier (ID) of this PathPoint.
+     *
+     * @return The ID of this PathPoint.
+     */
     @Override
     public String getElementId() {
         return this.id;

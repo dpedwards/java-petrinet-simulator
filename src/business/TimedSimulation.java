@@ -72,7 +72,7 @@ public class TimedSimulation extends Simulation {
         for (Place place : places) {
             TokenSet tokenList = place.getTokens();
             if (tokenList.size() > 0) {
-                for (Token token : Token(tokenList)) { // Iterate directly over tokenList
+                for (Token token : tokensWithTimestamp(tokenList)) { // Iterate directly over tokenList
                     if (token.getTimestamp() != 0 && token.getTimestamp() < minTime) {
                         minTime = token.getTimestamp();
                     }
@@ -85,12 +85,28 @@ public class TimedSimulation extends Simulation {
         this.gui.getTxtClock().setText(String.valueOf(this.time)); // Update the time on the GUI
     }
     
-    /* TODO: Fix 
-     * Type mismatch: cannot convert from element type Object to TokenJava(16777796)
-     * TokenSet tokenList - business.TimedSimulation.incrementTime()
+    /**
+     * Filters the tokens in the given TokenSet and returns an array of tokens
+     * that have a timestamp greater than zero.
+     *
+     * @param tokenList The TokenSet to filter tokens from.
+     * @return An array of tokens with timestamps greater than zero.
      */
-    private Token[] Token(TokenSet tokenList) {
-        return null;
+    private Token[] tokensWithTimestamp(TokenSet tokenList) {
+        // Create an ArrayList to store the filtered tokens.
+        ArrayList<Token> tokens = new ArrayList<>();
+
+        // Iterate through the tokens in the TokenSet.
+        for (Token token : tokenList) {
+            // Check if the token has a timestamp greater than zero.
+            if (token.getTimestamp() > 0) {
+                // If the condition is met, add the token to the ArrayList.
+                tokens.add(token);
+            }
+        }
+
+        // Convert the ArrayList of tokens to an array and return it.
+        return tokens.toArray(new Token[tokens.size()]);
     }
 
     /**
