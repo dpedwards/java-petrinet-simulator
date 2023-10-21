@@ -5,16 +5,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import presentation.GUI;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class TimedSimulation extends Simulation {
 
+    // Current simulation time
     private long time = 0;
 
     public TimedSimulation(boolean step, GUI gui) {
         super(step, gui);
+        // Set the initial time on the GUI
         gui.getTxtClock().setText(String.valueOf(time));
     }
 
@@ -25,26 +23,30 @@ public class TimedSimulation extends Simulation {
 
     @Override
     public boolean isFinished() {
-        ArrayList enabledTransitions = this.enabledTransitionList();
-        boolean isDead = this.enabledTransitionList().isEmpty();
-        if (enabledTransitions.isEmpty()) {
+        // Get the list of enabled transitions
+        ArrayList<Transition> enabledTransitions = enabledTransitionList();
+        // Check if there are any enabled transitions
+        boolean isDead = enabledTransitions.isEmpty();
+
+        if (isDead) {
+            // If no enabled transitions, increment time and check again
             incrementTime();
-            enabledTransitions = this.enabledTransitionList();
+            enabledTransitions = enabledTransitionList();
             if (!enabledTransitions.isEmpty()) {
                 isDead = false;
             }
-        } else {
-            isDead = false;
         }
+
         return isDead;
     }
 
     @Override
-    public ArrayList enabledTransitionList() {
-        Iterator it = Global.petriNet.getTransitions().iterator();
-        ArrayList enabledTransitions = new ArrayList();
+    public ArrayList<Transition> enabledTransitionList() {
+        Iterator<Transition> it = Global.petriNet.getTransitions().iterator();
+        ArrayList<Transition> enabledTransitions = new ArrayList<>();
         while (it.hasNext()) {
-            Transition transition = (Transition) it.next();
+            Transition transition = it.next();
+            // Check if the transition is enabled at the current time
             if (transition.enabled(time)) {
                 enabledTransitions.add(transition);
             }
@@ -55,37 +57,44 @@ public class TimedSimulation extends Simulation {
     @Override
     protected void fireTransition() {
         enabledTransitionList();
-        if (!this.enabledTransitionList().isEmpty()) {
+        if (!enabledTransitionList().isEmpty()) {
+            // Fire a random enabled transition
             getRandomTransition().fire(this.gui, this.time);
             pauseResumeSimulation();
         }
     }
 
     public void incrementTime() {
-        // Visit all places tokens and check whether they have timestamp>0 and less than globalclock
-        // assign the global clock to the mimnimum found
-        long minTime = 999999999;
-        ArrayList places = Global.petriNet.getPlaces();
-        for (int i = 0; i < places.size(); i++) {
-            Place place = (Place) places.get(i);
+        // Visit all places' tokens and check whether they have timestamp>0 and less than the global clock
+        // Assign the global clock to the minimum found
+        long minTime = Long.MAX_VALUE;
+        ArrayList<Place> places = Global.petriNet.getPlaces();
+        for (Place place : places) {
             TokenSet tokenList = place.getTokens();
             if (tokenList.size() > 0) {
-                for (int j = 0; j < tokenList.size(); j++) {
-                    Token token = (Token) tokenList.get(j);
+                for (Token token : Token(tokenList)) { // Iterate directly over tokenList
                     if (token.getTimestamp() != 0 && token.getTimestamp() < minTime) {
                         minTime = token.getTimestamp();
                     }
                 }
             }
         }
-        if (minTime != 999999999) {
+        if (minTime != Long.MAX_VALUE) {
             this.time = minTime;
         }
-        this.gui.getTxtClock().setText(String.valueOf(this.time));
+        this.gui.getTxtClock().setText(String.valueOf(this.time)); // Update the time on the GUI
+    }
+    
+    /* TODO: Fix 
+     * Type mismatch: cannot convert from element type Object to TokenJava(16777796)
+     * TokenSet tokenList - business.TimedSimulation.incrementTime()
+     */
+    private Token[] Token(TokenSet tokenList) {
+        return null;
     }
 
     /**
-     * @return the time
+     * @return the current time
      */
     public long getTime() {
         return time;
@@ -98,3 +107,4 @@ public class TimedSimulation extends Simulation {
         this.time = time;
     }
 }
+

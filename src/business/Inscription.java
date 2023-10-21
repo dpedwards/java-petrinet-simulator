@@ -19,10 +19,11 @@ public interface Inscription {
     public TokenSet execute();
 
     /** 
+     * TODO: 
      * Provides the ability to obtain a TokenSet.
      * Implementing classes must define how to get the TokenSet.
      * @return a TokenSet
      */
-    public TokenSet getTokenSet();
+    //public TokenSet getTokenSet();
 }
 

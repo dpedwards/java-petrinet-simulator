@@ -7,19 +7,18 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * A collection of tokens.
  */
-public class TokenSet extends AbstractCollection {
+public class TokenSet extends AbstractCollection<Token> {
 
-    private ArrayList tokenList = new ArrayList();
+    private ArrayList<Token> tokenList = new ArrayList<>();
 
     public TokenSet() {
     }
 
     public TokenSet(Object object) {
         if (object instanceof Token) {
-            tokenList.add(object);
+            tokenList.add((Token) object);
         } else if (object instanceof TokenSet) {
             tokenList.addAll((TokenSet) object);
         } else {
@@ -44,7 +43,7 @@ public class TokenSet extends AbstractCollection {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<Token> iterator() {
         return tokenList.iterator();
     }
 
@@ -54,23 +53,22 @@ public class TokenSet extends AbstractCollection {
     }
 
     @Override
-    public boolean add(Object tokenSet) {
-        return tokenList.add(tokenSet);
-
+    public boolean add(Token token) {
+        return tokenList.add(token);
     }
 
     @Override
-    public boolean addAll(Collection tokenSet) {
-        boolean b = tokenList.addAll(((TokenSet) tokenSet).getTokenList());
+    public boolean addAll(Collection<? extends Token> tokenSet) {
+        boolean b = tokenList.addAll(tokenSet);
         return b;
     }
 
-    public ArrayList getTokenList() {
+    public ArrayList<Token> getTokenList() {
         return this.tokenList;
     }
 
     public Token get(int id) {
-        return (Token) tokenList.get(id);
+        return tokenList.get(id);
     }
 
     @Override
@@ -79,14 +77,17 @@ public class TokenSet extends AbstractCollection {
     }
 
     /**
-     * if(exists at least one timed token and his time <= GLOBALTIME) true
+     * Checks if there exists at least one timed token with a time less than or equal to the given timestamp.
+     *
+     * @param timestamp the timestamp to compare with
+     * @return true if such a token exists, false otherwise
      */
     public boolean containsTime(long timestamp) {
         boolean found = false;
         boolean allzero = true;
-        Iterator it = tokenList.iterator();
+        Iterator<Token> it = tokenList.iterator();
         while (it.hasNext()) {
-            Token token = (Token) it.next();
+            Token token = it.next();
             if (token.getTimestamp() <= timestamp) {
                 found = true;
             }
@@ -95,18 +96,18 @@ public class TokenSet extends AbstractCollection {
             }
         }
 
-        if (allzero || found) {
-            return true;
-        } else {
-            return false;
-        }
+        return allzero || found;
     }
 
-    /** Increments timed tokens by a fixed amount */
+    /**
+     * Increments the timestamp of timed tokens by a fixed amount.
+     *
+     * @param timestamp the amount to increment by
+     */
     public void incrementTime(long timestamp) {
-        Iterator it = tokenList.iterator();
+        Iterator<Token> it = tokenList.iterator();
         while (it.hasNext()) {
-            Token token = (Token) it.next();
+            Token token = it.next();
             if (token.getTimestamp() != 0) {
                 token.setTimestamp(token.getTimestamp() + timestamp);
             }
@@ -114,11 +115,11 @@ public class TokenSet extends AbstractCollection {
     }
 
     @Override
-    public boolean removeAll(Collection c) {
-        Iterator it = tokenList.iterator();
+    public boolean removeAll(Collection<?> c) {
+        Iterator<Token> it = tokenList.iterator();
         while (it.hasNext()) {
-            Token i = (Token) it.next();
-            Iterator it2 = c.iterator();
+            Token i = it.next();
+            Iterator<?> it2 = c.iterator();
             while (it2.hasNext()) {
                 Token j = (Token) it2.next();
                 if (j.equals(i)) {

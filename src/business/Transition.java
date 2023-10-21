@@ -5,13 +5,12 @@ import java.util.Iterator;
 import presentation.GUI;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * Represents a transition in the Petri Net.
  */
 public class Transition extends NetObject implements Inscription {
 
     private String guardText = "return true;";
-    /** Global clock when the transition fires.*/
+    /** Global clock when the transition fires. */
     private long globalClock;
 
     public Transition() {
@@ -29,6 +28,9 @@ public class Transition extends NetObject implements Inscription {
 
     /** Fires a transition. */
     public void fire(GUI gui, long globalClock) {
+
+        Iterator<InputArc> inputIteratorArc = Global.petriNet.getInputArcs().iterator();
+        Iterator<OutputArc> outputIteratorArc = Global.petriNet.getOutputArcs().iterator();
         this.globalClock = globalClock;
 
         // Highlight places ON
@@ -37,10 +39,9 @@ public class Transition extends NetObject implements Inscription {
         // Highlight inputArcs ON
         gui.getCanvas().highlightArcs(Global.petriNet.getInputArcs(), id, true, true);
 
-        //remove all tokens from places
-        Iterator it = Global.petriNet.getInputArcs().iterator();
-        while (it.hasNext()) {
-            InputArc arc = (InputArc) it.next();
+        // Remove all tokens from places
+        while (inputIteratorArc.hasNext()) {
+            InputArc arc = (InputArc) inputIteratorArc.next();
             if (arc.getTransition().getId().equals(getId())) {
                 arc.getPlace().removeTokens(arc.execute());
                 gui.getJTextArea1().append("- " + arc.getExecuteText() + "\n");
@@ -63,29 +64,25 @@ public class Transition extends NetObject implements Inscription {
         }
         gui.getJTextArea1().setCaretPosition(gui.getJTextArea1().getText().length());
 
-
         // Highlight transition OFF
         gui.getCanvas().highlightTransition(id, false, false);
 
         // Highlight outputArcs ON
         gui.getCanvas().highlightArcs(Global.petriNet.getOutputArcs(), id, true, false);
 
-
         // Highlight places ON
         gui.getCanvas().highlightPlaces(Global.petriNet.getOutputArcs(), id, true, true);
 
-        //create all tokens to output places
-        it = Global.petriNet.getOutputArcs().iterator();
-        while (it.hasNext()) {
-            OutputArc arc = (OutputArc) it.next();
+        // Create all tokens to output places
+        while (outputIteratorArc.hasNext()) {
+            OutputArc arc = (OutputArc) outputIteratorArc.next();
             if (arc.getTransition().getId().equals(getId())) {
                 TokenSet tokenSet = arc.execute();
-                tokenSet.incrementTime(globalClock);// set time of all new tokens of the tokenSet
+                tokenSet.incrementTime(globalClock); // Set time of all new tokens in the tokenSet
                 arc.getPlace().addToken(tokenSet);
 
                 gui.getJTextArea1().append("+ " + arc.getExecuteText() + "\n");
                 gui.getJTextArea1().setCaretPosition(gui.getJTextArea1().getText().length());
-
             }
         }
 
@@ -99,15 +96,24 @@ public class Transition extends NetObject implements Inscription {
         gui.getCanvas().repaint();
     }
 
+    /**
+     * Checks if the transition is enabled at a given time.
+     *
+     * @param time the time to check against
+     * @return true if enabled, false otherwise
+     */
     public boolean enabled(long time) {
+
+        Iterator<InputArc> inputIteratorArc = Global.petriNet.getInputArcs().iterator();
+        Iterator<OutputArc> outputIteratorArc = Global.petriNet.getOutputArcs().iterator();
+
         // transition guard evaluation
         boolean enabled = evaluate();
 
         // input arc guards
         if (enabled && !Global.petriNet.getInputArcs().isEmpty()) {
-            Iterator it = Global.petriNet.getInputArcs().iterator();
-            while (enabled && it.hasNext()) {
-                InputArc arc = (InputArc) it.next();
+            while (enabled && inputIteratorArc.hasNext()) {
+                InputArc arc = (InputArc) inputIteratorArc.next();
                 if (arc.getTransition().getId().equals(getId())) {
                     TokenSet tokensList = arc.getPlace().getTokens();
                     enabled = tokensList.containsTime(time);
@@ -119,9 +125,8 @@ public class Transition extends NetObject implements Inscription {
 
         // check output arc place capacity restriction
         if (enabled && !Global.petriNet.getOutputArcs().isEmpty()) {
-            Iterator it = Global.petriNet.getOutputArcs().iterator();
-            while (enabled && it.hasNext()) {
-                OutputArc arc = (OutputArc) it.next();
+            while (enabled && outputIteratorArc.hasNext()) {
+                OutputArc arc = (OutputArc) outputIteratorArc.next();
                 if (arc.getTransition().getId().equals(getId())) {
                     TokenSet tokensList = arc.getPlace().getTokens();
                     // check if places have capacity limit
@@ -135,38 +140,50 @@ public class Transition extends NetObject implements Inscription {
         return enabled;
     }
 
+    /**
+     * Evaluates the transition's guard condition.
+     *
+     * @return true if the guard condition is met, false otherwise
+     */
     public boolean evaluate() {
-        return true;
+        return true; // Modify this to implement your guard condition logic
     }
 
+    /**
+     * Executes the transition.
+     *
+     * @return the resulting token set
+     */
     public TokenSet execute() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public TokenSet getTokenSet() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     /**
-     * @return the inscriptionText
+     * Gets the guard text for the transition.
+     *
+     * @return the guard text
      */
     public String getGuardText() {
         return guardText;
     }
 
     /**
-     * @param inscriptionText the inscriptionText to set
+     * Sets the guard text for the transition.
+     *
+     * @param guardText the guard text to set
      */
     public void setGuardText(String guardText) {
         this.guardText = guardText;
     }
 
     /**
+     * Gets the global clock when the transition fires.
+     *
      * @return the globalClock
      */
     public long getGlobalClock() {
         return globalClock;
     }
+
+
 }
-
-
