@@ -5,10 +5,6 @@ package presentation;
 
 import business.Simulation;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class FrmAnimationOptions extends javax.swing.JDialog {
 
     /** Creates new form AnimationOptions */

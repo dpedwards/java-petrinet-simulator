@@ -30,10 +30,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class GUI extends javax.swing.JFrame {
 
     /** The simulator thread*/

@@ -6,10 +6,6 @@
  */
 package presentation;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class FrmViewSource extends javax.swing.JDialog {
 
     /** Creates new form FrmViewSource */

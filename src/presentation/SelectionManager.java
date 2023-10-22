@@ -19,10 +19,6 @@ import presentation.figures.AbstractFigure;
 import presentation.figures.PathPoint;
 import presentation.figures.TextFigure;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class SelectionManager extends javax.swing.JComponent implements MouseListener, MouseMotionListener, KeyListener {
 
     /** Selection rectangle starting coordinates.*/

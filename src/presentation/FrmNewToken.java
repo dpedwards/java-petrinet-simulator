@@ -7,12 +7,7 @@
 package presentation;
 
 import business.Token;
-import org.codehaus.janino.ExpressionEvaluator;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class FrmNewToken extends javax.swing.JDialog {
 
     private Token token;

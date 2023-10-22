@@ -54,7 +54,6 @@ import presentation.figures.TransitionFigure;
 /**
  * FileManager handles the reading and writing of Petri Net data 
  * in XML format and provides methods for image saving.
- * @author Davain Pablo Edwards
  */
 public class FileManager {
 

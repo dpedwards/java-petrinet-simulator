@@ -41,8 +41,8 @@ import presentation.figures.NormalArcFigure;
 import presentation.figures.PathPoint;
 
 /**
- *
- * @author Davain Pablo Edwards
+ * This class represents the canvas for drawing and interacting with Petri Net
+ * objects. It extends JPanel and implements various event listeners.
  */
 public class Canvas extends javax.swing.JPanel
         implements MouseListener, MouseMotionListener, MouseWheelListener, KeyListener {

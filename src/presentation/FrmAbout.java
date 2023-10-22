@@ -7,10 +7,6 @@
  */
 package presentation;
 
-/**
- *
- * @author Guillem
- */
 public class FrmAbout extends javax.swing.JDialog {
 
     /** Creates new form FrmAbout */

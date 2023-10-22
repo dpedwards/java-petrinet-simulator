@@ -1,4 +1,4 @@
-/* Copyright Guillem Catala. www.guillemcatala.com/petrinetsim. Licensed http://creativecommons.org/licenses/by-nc-sa/3.0/ */
+/* Copyright Davain Pablo Edwards core8@gmx.net. Licensed https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en */
 
 /*
  * FrmPlace.java
@@ -22,10 +22,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Davain Pablo Edwards
- */
 public class FrmNetObject extends javax.swing.JDialog {
 
     private int currentTabIndex;

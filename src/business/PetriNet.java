@@ -5,6 +5,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/**
+ * This class represents a Petri Net, which is a mathematical model used to describe
+ * systems with concurrent processes, such as distributed systems and workflows.
+ * It contains places, transitions, input arcs, output arcs, and other elements that
+ * define the structure and behavior of the Petri Net.
+ *
+ * The Petri Net class manages these elements and provides methods for adding and
+ * removing them. It also stores additional information such as import text,
+ * declaration text, and implement text, which can be used for code generation.
+ *
+ * The class provides methods for checking whether the Petri Net has enabled transitions
+ * and for accessing various lists of elements within the Petri Net.
+ */
 public class PetriNet extends NetObject {
 
     /** Contains all places of the net. */
