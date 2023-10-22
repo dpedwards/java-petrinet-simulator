@@ -15,6 +15,7 @@ import data.FileManager;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -24,7 +25,6 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
@@ -34,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
 
     /** The simulator thread*/
     private volatile TimedSimulation simulator;
-    private String defaultPath = "templates";
+    private String defaultPath = "assets";
     private String javaSource;
     private ArrayList buttonGroup1 = new ArrayList();
 
@@ -49,7 +49,7 @@ public class GUI extends javax.swing.JFrame {
 
         initComponents();
         this.setTitle(Global.petriNet.getLabel() + " - Petrinetz Simulator");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/icon.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icons/icon.png")));
 
         buttonGroup1.add(btnSelect);
         buttonGroup1.add(btnPlay);
@@ -116,7 +116,7 @@ public class GUI extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/new.png"))); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/new.png"))); // NOI18N
         btnNew.setToolTipText("New");
         btnNew.setBorderPainted(false);
         btnNew.setFocusable(false);
@@ -129,7 +129,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnNew);
 
-        btnOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/open.png"))); // NOI18N
+        btnOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/open.png"))); // NOI18N
         btnOpen.setToolTipText("Open");
         btnOpen.setBorderPainted(false);
         btnOpen.setFocusable(false);
@@ -142,7 +142,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnOpen);
 
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/save.png"))); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/save.png"))); // NOI18N
         btnSave.setToolTipText("Save");
         btnSave.setBorderPainted(false);
         btnSave.setFocusable(false);
@@ -155,7 +155,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnSave);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/netsource.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/netsource.png"))); // NOI18N
         jButton1.setToolTipText("View Net Source");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -170,7 +170,7 @@ public class GUI extends javax.swing.JFrame {
 
         btnSelect.setSelected(true);
         setSelectionMode();
-        btnSelect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/select.png"))); // NOI18N
+        btnSelect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/select.png"))); // NOI18N
         btnSelect.setToolTipText("Select");
         btnSelect.setFocusable(false);
         btnSelect.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -182,7 +182,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnSelect);
 
-        btnPlace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/createPlace.png"))); // NOI18N
+        btnPlace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/createPlace.png"))); // NOI18N
         btnPlace.setToolTipText("Place");
         btnPlace.setFocusable(false);
         btnPlace.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -194,7 +194,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnPlace);
 
-        btnTransition.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/createTransition.png"))); // NOI18N
+        btnTransition.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/createTransition.png"))); // NOI18N
         btnTransition.setToolTipText("Transition");
         btnTransition.setFocusable(false);
         btnTransition.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -206,7 +206,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnTransition);
 
-        btnNormalArc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/normalarc.png"))); // NOI18N
+        btnNormalArc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/normalarc.png"))); // NOI18N
         btnNormalArc.setToolTipText("Normal Arc");
         btnNormalArc.setFocusable(false);
         btnNormalArc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -219,7 +219,7 @@ public class GUI extends javax.swing.JFrame {
         jToolBar1.add(btnNormalArc);
         jToolBar1.add(jSeparator1);
 
-        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/play.png"))); // NOI18N
+        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/play.png"))); // NOI18N
         btnPlay.setToolTipText("Run");
         btnPlay.setBorderPainted(false);
         btnPlay.setFocusable(false);
@@ -232,7 +232,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jToolBar1.add(btnPlay);
 
-        btnStep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/step.png"))); // NOI18N
+        btnStep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/step.png"))); // NOI18N
         btnStep.setToolTipText("Step");
         btnStep.setBorderPainted(false);
         btnStep.setFocusable(false);
@@ -246,7 +246,7 @@ public class GUI extends javax.swing.JFrame {
         jToolBar1.add(btnStep);
 
         btnStop.setVisible(false);
-        btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/stop.png"))); // NOI18N
+        btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/stop.png"))); // NOI18N
         btnStop.setToolTipText("Stop");
         btnStop.setBorderPainted(false);
         btnStop.setFocusable(false);
@@ -260,7 +260,7 @@ public class GUI extends javax.swing.JFrame {
         jToolBar1.add(btnStop);
         jToolBar1.add(jSeparator2);
 
-        btnGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/grid.png"))); // NOI18N
+        btnGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/grid.png"))); // NOI18N
         btnGrid.setToolTipText("Toggle Grid");
         btnGrid.setFocusable(false);
         btnGrid.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -358,7 +358,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/new.png"))); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/new.png"))); // NOI18N
         jMenuItem4.setText("New Net");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,7 +367,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/open.png"))); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/open.png"))); // NOI18N
         jMenuItem7.setText("Open...");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,7 +377,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.add(jMenuItem7);
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/save.png"))); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/save.png"))); // NOI18N
         jMenuItem5.setText("Save As...");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,7 +387,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.add(jMenuItem5);
 
         jMenuItem9.setText("Export PNG");
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/export.png"))); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/export.png"))); // NOI18N
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -396,7 +396,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.add(jMenuItem9);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/exit.png"))); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/exit.png"))); // NOI18N
         jMenuItem6.setMnemonic('E');
         jMenuItem6.setText("Exit");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -412,7 +412,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu2.setText("Options");
 
         jMenuItem8.setText("Animation Options");
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/animation.png"))); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/animation.png"))); // NOI18N
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -425,7 +425,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu3.setMnemonic('H');
         jMenu3.setText("Help");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/about.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/about.png"))); // NOI18N
         jMenuItem2.setText("About");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,7 +545,12 @@ public class GUI extends javax.swing.JFrame {
         if (option == JFileChooser.APPROVE_OPTION) {
             if (this.jFileChooser1.getSelectedFile() != null) {
                 File file = this.jFileChooser1.getSelectedFile();
-                fileManager.savePNG(canvas.drawCanvas(), file);
+                try {
+                    fileManager.savePNG(canvas.drawCanvas(), file);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed

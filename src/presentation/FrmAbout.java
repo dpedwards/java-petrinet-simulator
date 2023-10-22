@@ -38,7 +38,7 @@ public class FrmAbout extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/about.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icons/about.png")));
         setBackground(new java.awt.Color(153, 204, 255));
         setResizable(false);
 
@@ -87,7 +87,7 @@ public class FrmAbout extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/Animated_Petri_net_commons.gif"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/Animated_Petri_net_commons.gif"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
