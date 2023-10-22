@@ -525,16 +525,23 @@ public class FileManager {
         }
 
     /**
-     * Saves the given BufferedImage to the specified file in PNG format.
-     * 
+     * Saves a BufferedImage as a PNG image to the specified file. Automatically adds ".png" file extension if missing.
+     *
      * @param bufferedImage The BufferedImage to be saved.
-     * @param file The target file.
+     * @param file          The File where the image will be saved (with or without file extension).
+     * @throws IOException If there's an error saving the image to the file.
      */
-    public void savePNG(BufferedImage bufferedImage, File file) {
+    public void savePNG(BufferedImage bufferedImage, File file) throws IOException {
+        // Check if the file name ends with ".png", if not, add it
+        if (!file.getName().toLowerCase().endsWith(".png")) {
+            file = new File(file.getAbsolutePath() + ".png");
+        }
+
         try {
             ImageIO.write(bufferedImage, "png", file);
         } catch (IOException ex) {
             Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, "Error saving the image to file", ex);
+            throw ex; // Rethrow the exception to indicate the error
         }
     }
 }
