@@ -48,7 +48,7 @@ public class GUI extends javax.swing.JFrame {
         }
 
         initComponents();
-        this.setTitle(Global.petriNet.getLabel() + " - Petrinetz Simulator");
+        this.setTitle(Global.petriNet.getLabel() + " - Java Petrinetz (PetriNet) Simulator GUI");
         setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icons/icon.png")));
 
         buttonGroup1.add(btnSelect);

@@ -52,16 +52,30 @@ public class FrmAbout extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Petrinetz Simulator");
+        jLabel1.setText("Java Petrinetz (PetriNet) Simulator GUI");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Davain Pablo Edwards");
+        jTextArea1.setText("Graphische Modellierung mit Petri-Netzen:\r\n" + //
+                "Eingeführt von Carl Petri 1962 (mathematisch).\r\n" + //
+                "Erweitert Zustandsautomaten um Prozesse = zeitliche Abläufe.\r\n" + //
+                "Ermöglicht u.a. Beschreibung paralleler Prozesse.\r\n" + //
+                "Einfaches Grundmodell und viele Erweiterungen.\r\n" + //
+                "[Umfangreiche mathematische Analysen, z. B.]\r\n" + //
+                "- Erreichbarkeit von Zuständen\r\n" + //
+                "- Beschränktheit von Plätzen\r\n" + //
+                "- Verklemmungsfreiheit\r\n" + //
+                "[Anwendungen u.a.]\r\n" + //
+                "- parallele Prozesse in der Informatik\r\n" + //
+                "[Fertigungstechnik]\r\n" + //
+                "- Logistik\r\n" + //
+                "- Geschäftsprozesse\r\n" + //
+                "- theoretische Biologie");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel2.setText("Java Petrinetz Simulator mit GUI");
+        jLabel2.setText("Davain Pablo Edwards");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
