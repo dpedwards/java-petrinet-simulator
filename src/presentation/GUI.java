@@ -34,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
 
     /** The simulator thread*/
     private volatile TimedSimulation simulator;
-    private String defaultPath = "c:\\PetriNetSim\\exemples";
+    private String defaultPath = "templates";
     private String javaSource;
     private ArrayList buttonGroup1 = new ArrayList();
 
@@ -48,7 +48,7 @@ public class GUI extends javax.swing.JFrame {
         }
 
         initComponents();
-        this.setTitle(Global.petriNet.getLabel() + " - PetriNetSim");
+        this.setTitle(Global.petriNet.getLabel() + " - Petrinetz Simulator");
         setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/icon.png")));
 
         buttonGroup1.add(btnSelect);
@@ -345,14 +345,14 @@ public class GUI extends javax.swing.JFrame {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        jLabel1.setText("Global Clock ");
-        jToolBar2.add(jLabel1);
+        //jLabel1.setText("Global Clock ");
+        //jToolBar2.add(jLabel1);
 
-        txtClock.setFont(new java.awt.Font("Tahoma", 1, 14));
-        txtClock.setText("0");
-        txtClock.setHorizontalAlignment(SwingConstants.TRAILING);
-        txtClock.setEditable(false);
-        jToolBar2.add(txtClock);
+        //txtClock.setFont(new java.awt.Font("Tahoma", 1, 14));
+        //txtClock.setText("0");
+        //txtClock.setHorizontalAlignment(SwingConstants.TRAILING);
+        //txtClock.setEditable(false);
+        //jToolBar2.add(txtClock);
 
         jMenu1.setMnemonic('F');
         jMenu1.setText("File");
