@@ -387,6 +387,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.add(jMenuItem5);
 
         jMenuItem9.setText("Export PNG");
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/export.png"))); // NOI18N
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -411,6 +412,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu2.setText("Options");
 
         jMenuItem8.setText("Animation Options");
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/images/animation.png"))); // NOI18N
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);

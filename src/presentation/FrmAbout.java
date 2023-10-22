@@ -7,6 +7,8 @@
  */
 package presentation;
 
+import java.awt.Toolkit;
+
 public class FrmAbout extends javax.swing.JDialog {
 
     /** Creates new form FrmAbout */
@@ -36,6 +38,7 @@ public class FrmAbout extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/about.png")));
         setBackground(new java.awt.Color(153, 204, 255));
         setResizable(false);
 

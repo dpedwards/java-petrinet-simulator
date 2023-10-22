@@ -3,6 +3,7 @@
 
 package presentation;
 
+import java.awt.Toolkit;
 import business.Simulation;
 
 public class FrmAnimationOptions extends javax.swing.JDialog {
@@ -38,6 +39,7 @@ public class FrmAnimationOptions extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Animation Options");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/animation.png")));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
