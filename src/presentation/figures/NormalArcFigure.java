@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
 /**
- * Represents a normal arc figure that extends AbstractArcFigure and defines its behavior.
+ * Represents a edge aka the normal arc figure that extends AbstractArcFigure and defines its behavior.
  */
 public class NormalArcFigure extends AbstractArcFigure {
 

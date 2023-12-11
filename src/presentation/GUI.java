@@ -207,7 +207,7 @@ public class GUI extends javax.swing.JFrame {
         jToolBar1.add(btnTransition);
 
         btnNormalArc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentation/icons/normalarc.png"))); // NOI18N
-        btnNormalArc.setToolTipText("Normal Arc");
+        btnNormalArc.setToolTipText("Edge (Normal Arc)");
         btnNormalArc.setFocusable(false);
         btnNormalArc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNormalArc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

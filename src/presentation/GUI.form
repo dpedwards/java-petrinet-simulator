@@ -234,7 +234,7 @@
         </Component>
         <Component class="javax.swing.JToggleButton" name="btnNormalArc">
           <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Normal Arc"/>
+            <Property name="toolTipText" type="java.lang.String" value="Edge (Normal Arc)"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
