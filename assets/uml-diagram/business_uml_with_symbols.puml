@@ -1,0 +1,138 @@
+@startuml
+class Arc {
+    # Place place
+    # Transition transition
+    + getPlace()
+    + setPlace(Place place)
+    + getTransition()
+    + setTransition(Transition transition)
+}
+class Global {
+}
+class InputArc {
+    - generateId()
+    + evaluate()
+    + execute()
+    + getTokenSet()
+    + removeTimedToken(TokenSet tokenSet)
+    + getEvaluateText()
+    + setEvaluateText(String evaluateText)
+    + getExecuteText()
+    + setExecuteText(String executeText)
+}
+class Inscription {
+    + evaluate()
+    + execute()
+    + getTokenSet()
+}
+class NetClass {
+    - StringBuffer netSource
+    + compile(String javaSource)
+    + generateNetSource()
+    + evaluate()
+    + evaluate()
+    + execute()
+    + execute()
+    + getNetSource()
+    + setNetSource(StringBuffer netSource)
+}
+class NetObject {
+    # String id
+    + getId()
+    + setId(String id)
+    + getLabel()
+    + setLabel(String label)
+}
+class OutputArc {
+    + evaluate()
+    + execute()
+    + getTokenSet()
+    + getExecuteText()
+    + setExecuteText(String executeText)
+}
+class PetriNet {
+    + isDead()
+    + addPlace(Place place)
+    + addTransition(Transition transition)
+    + addInputArc(InputArc inputArc)
+    + addOutputArc(OutputArc outputArc)
+    + removePlace(Place place)
+    + removeTransition(Transition transition)
+    + removeInputArc(InputArc inputArc)
+    + removeOutputArc(OutputArc outputArc)
+    + removeInputArcs(String id)
+    + setPlaces(ArrayList<Place> places)
+    + setTransitions(ArrayList<Transition> transitions)
+    + setInputArcs(ArrayList<InputArc> inputArcs)
+    + setOutputArcs(ArrayList<OutputArc> outputArcs)
+    + getNetElement(String id)
+    + getDeclarationText()
+    + setDeclarationText(String declarationText)
+    + getImportText()
+    + setImportText(String importText)
+    + getImplementText()
+    + setImplementText(String implementText)
+}
+class Place {
+    + getTokens()
+    + setTokens(TokenSet tokens)
+    + addToken(TokenSet tokenSet)
+    + removeTokens(TokenSet tokenSet)
+    + getCapacity()
+    + setCapacity(int capacity)
+}
+class Simulation {
+    # GUI gui
+    + run()
+    + isFinished()
+    # fireTransition()
+    + getRandomTransition()
+    + isStep()
+    + setStep(boolean step)
+    + isPaused()
+    + setPaused(boolean paused)
+    + isStop()
+    + setStop(boolean stop)
+}
+class TimedSimulation {
+    + run()
+    + isFinished()
+    # fireTransition()
+    + incrementTime()
+    + getTime()
+    + setTime(long time)
+}
+class Token {
+    - Object object
+    + equals(Object obj)
+    + hashCode()
+    + toString()
+    + getObject()
+    + setObject(Object object)
+    + getTimestamp()
+    + setTimestamp(long timestamp)
+    + getInitialMarkingExpression()
+    + setInitialMarkingExpression(String initialMarkingExpression)
+}
+class TokenSet {
+    + size()
+    + add(Token token)
+    + addAll(Collection<? extends Token> tokenSet)
+    + get(int id)
+    + remove(Object o)
+    + containsTime(long timestamp)
+    + incrementTime(long timestamp)
+    + removeAll(Collection<?> c)
+    + clear()
+}
+class Transition {
+    - long globalClock
+    + fire(GUI gui, long globalClock)
+    + enabled(long time)
+    + evaluate()
+    + execute()
+    + getGuardText()
+    + setGuardText(String guardText)
+    + getGlobalClock()
+}
+@enduml

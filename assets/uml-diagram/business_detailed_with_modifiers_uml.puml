@@ -1,0 +1,138 @@
+@startuml
+class Arc {
+    protected Place place
+    protected Transition transition
+    public getPlace()
+    public setPlace(Place place)
+    public getTransition()
+    public setTransition(Transition transition)
+}
+class Global {
+}
+class InputArc {
+    private generateId()
+    public evaluate()
+    public execute()
+    public getTokenSet()
+    public removeTimedToken(TokenSet tokenSet)
+    public getEvaluateText()
+    public setEvaluateText(String evaluateText)
+    public getExecuteText()
+    public setExecuteText(String executeText)
+}
+class Inscription {
+    public evaluate()
+    public execute()
+    public getTokenSet()
+}
+class NetClass {
+    private StringBuffer netSource
+    public compile(String javaSource)
+    public generateNetSource()
+    public evaluate()
+    public evaluate()
+    public execute()
+    public execute()
+    public getNetSource()
+    public setNetSource(StringBuffer netSource)
+}
+class NetObject {
+    protected String id
+    public getId()
+    public setId(String id)
+    public getLabel()
+    public setLabel(String label)
+}
+class OutputArc {
+    public evaluate()
+    public execute()
+    public getTokenSet()
+    public getExecuteText()
+    public setExecuteText(String executeText)
+}
+class PetriNet {
+    public isDead()
+    public addPlace(Place place)
+    public addTransition(Transition transition)
+    public addInputArc(InputArc inputArc)
+    public addOutputArc(OutputArc outputArc)
+    public removePlace(Place place)
+    public removeTransition(Transition transition)
+    public removeInputArc(InputArc inputArc)
+    public removeOutputArc(OutputArc outputArc)
+    public removeInputArcs(String id)
+    public setPlaces(ArrayList<Place> places)
+    public setTransitions(ArrayList<Transition> transitions)
+    public setInputArcs(ArrayList<InputArc> inputArcs)
+    public setOutputArcs(ArrayList<OutputArc> outputArcs)
+    public getNetElement(String id)
+    public getDeclarationText()
+    public setDeclarationText(String declarationText)
+    public getImportText()
+    public setImportText(String importText)
+    public getImplementText()
+    public setImplementText(String implementText)
+}
+class Place {
+    public getTokens()
+    public setTokens(TokenSet tokens)
+    public addToken(TokenSet tokenSet)
+    public removeTokens(TokenSet tokenSet)
+    public getCapacity()
+    public setCapacity(int capacity)
+}
+class Simulation {
+    protected GUI gui
+    public run()
+    public isFinished()
+    protected fireTransition()
+    public getRandomTransition()
+    public isStep()
+    public setStep(boolean step)
+    public isPaused()
+    public setPaused(boolean paused)
+    public isStop()
+    public setStop(boolean stop)
+}
+class TimedSimulation {
+    public run()
+    public isFinished()
+    protected fireTransition()
+    public incrementTime()
+    public getTime()
+    public setTime(long time)
+}
+class Token {
+    private Object object
+    public equals(Object obj)
+    public hashCode()
+    public toString()
+    public getObject()
+    public setObject(Object object)
+    public getTimestamp()
+    public setTimestamp(long timestamp)
+    public getInitialMarkingExpression()
+    public setInitialMarkingExpression(String initialMarkingExpression)
+}
+class TokenSet {
+    public size()
+    public add(Token token)
+    public addAll(Collection<? extends Token> tokenSet)
+    public get(int id)
+    public remove(Object o)
+    public containsTime(long timestamp)
+    public incrementTime(long timestamp)
+    public removeAll(Collection<?> c)
+    public clear()
+}
+class Transition {
+    private long globalClock
+    public fire(GUI gui, long globalClock)
+    public enabled(long time)
+    public evaluate()
+    public execute()
+    public getGuardText()
+    public setGuardText(String guardText)
+    public getGlobalClock()
+}
+@enduml

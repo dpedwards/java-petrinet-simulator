@@ -1,0 +1,12 @@
+@startuml
+class FileManager {
+    private Document dom
+    private Element pnml
+    public generateXML(HashMap figures, File file)
+    private createTextElement(String content)
+    private saveLabel(TextFigure figure, String name)
+    private createGraphic(AbstractFigure figure)
+    private appendPositionElement(Element graphics, Point2D point)
+    public savePNG(BufferedImage bufferedImage, File file)
+}
+@enduml
