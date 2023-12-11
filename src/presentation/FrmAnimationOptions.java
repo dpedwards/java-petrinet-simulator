@@ -39,7 +39,7 @@ public class FrmAnimationOptions extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Animation Options");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("images/animation.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icons/animation.png")));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
