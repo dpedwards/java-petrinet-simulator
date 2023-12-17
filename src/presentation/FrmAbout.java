@@ -52,7 +52,7 @@ public class FrmAbout extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Java Petrinetz (PetriNet) Simulator GUI");
+        jLabel1.setText("Java Petri-Netz (PetriNet) Simulator GUI");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
