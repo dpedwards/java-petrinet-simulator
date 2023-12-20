@@ -26,6 +26,8 @@ public class Simulation extends Thread {
     public static int COMPONENTDELAY = 100;
     protected GUI gui; // Reference to the GUI for user interaction
 
+    private ArrayList<Transition> transitions;
+
     /** Initializes a new Simulation instance.
      *
      * @param step Flag for step-by-step execution.
@@ -100,9 +102,16 @@ public class Simulation extends Thread {
     /** Returns a random transition from the enabled transitions list. */
     public Transition getRandomTransition() {
         ArrayList<Transition> enabledTransitions = this.enabledTransitionList();
+
+        // Check if the enabledTransitions list is empty or null
+        if (enabledTransitions == null || enabledTransitions.isEmpty()) {
+            // Return null or throw an exception as appropriate
+            return null; // Or throw a new IllegalStateException("No enabled transitions available");
+        }
+
         Random generator = new Random();
         int rand = generator.nextInt(enabledTransitions.size());
-        return (Transition) enabledTransitions.get(rand);
+        return enabledTransitions.get(rand);
     }
 
     /** Returns a list of enabled transitions. */
@@ -166,5 +175,12 @@ public class Simulation extends Thread {
             }
         }
         this.stop = stop;
+    }
+
+    /**
+     * @param transitions
+     */
+    public void setTransitions(ArrayList<Transition> transitions) {
+    this.transitions = transitions;
     }
 }

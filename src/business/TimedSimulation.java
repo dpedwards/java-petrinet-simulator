@@ -24,6 +24,7 @@ public class TimedSimulation extends Simulation {
         super(step, gui);
         // Set the initial time on the GUI
         gui.getTxtClock().setText(String.valueOf(time));
+        this.gui = gui;
     }
 
     @Override

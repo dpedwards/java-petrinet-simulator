@@ -47,6 +47,9 @@ public class Token {
         this.initialMarkingExpression = initialMarkingExpression;
     }
 
+    public Token() {
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      */

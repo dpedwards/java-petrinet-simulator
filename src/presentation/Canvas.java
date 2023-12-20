@@ -147,7 +147,7 @@ public class Canvas extends javax.swing.JPanel
     /** Calls the window form to edit a PetriNet figure and object*/
     public void showForm(NetObject netObject) throws HeadlessException {
         if (netObject != null) {
-            FrmNetObject frmPlace = new FrmNetObject(JOptionPane.getFrameForComponent(this), true, netObject);
+            new FrmNetObject(JOptionPane.getFrameForComponent(this), true, netObject);
             repaint();
         }
     }

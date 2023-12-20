@@ -14,6 +14,10 @@ public class TokenSet extends AbstractCollection<Token> {
     // ArrayList to store tokens in the TokenSet
     private ArrayList<Token> tokenList = new ArrayList<>();
 
+    private String name;
+    private long time;
+
+
     /**
      * Default constructor for TokenSet.
      */
@@ -68,6 +72,7 @@ public class TokenSet extends AbstractCollection<Token> {
      */
     public TokenSet(Object object, long timestamp, String initialMarkingExpression) {
         tokenList.add(new Token(object, timestamp, initialMarkingExpression));
+        this.time = System.currentTimeMillis();
     }
 
     /**
@@ -210,5 +215,13 @@ public class TokenSet extends AbstractCollection<Token> {
     @Override
     public void clear() {
         tokenList.clear();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getTime() {
+        return time;
     }
 }

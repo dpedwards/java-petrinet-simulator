@@ -318,7 +318,7 @@ public class FileManager {
         return figures;
     }
 
-        /**
+    /**
      * Generates an XML representation of the Petri Net Model and saves it to the specified file.
      * 
      * @param figures A HashMap containing the Petri Net figures data.
