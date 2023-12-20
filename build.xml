@@ -1,20 +1,25 @@
 <project name="junit-example">
+  <!-- Define properties for the main and test build directories, as well as source directories -->
   <property name="main.build.dir" value="build/main"/>
   <property name="main.src.dir" value="src/main/java"/>
   <property name="test.build.dir" value="build/test"/>
   <property name="test.src.dir" value="src/test/java"/>
 
+  <!-- Define the classpath for testing, including JUnit, Hamcrest, and Mockito libraries -->
   <path id="classpath.test">
     <pathelement location="lib/junit-4.12.jar"/>
     <pathelement location="lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="lib/mockito-core-5.8.0.jar"/>
     <pathelement location="${main.build.dir}"/>
   </path>
 
+  <!-- Compile the main source files -->
   <target name="compile">
     <mkdir dir="${main.build.dir}"/>
     <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false"/>
   </target>
 
+  <!-- Compile the test source files, depending on the main source files being compiled -->
   <target name="test-compile" depends="compile">
     <mkdir dir="${test.build.dir}"/>
     <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
@@ -22,6 +27,7 @@
     </javac>
   </target>
 
+  <!-- Run JUnit tests after compiling test sources -->
   <target name="test" depends="test-compile">
     <junit printsummary="on" haltonfailure="yes" fork="true">
         <classpath>
@@ -29,6 +35,7 @@
           <pathelement location="${test.build.dir}"/>
         </classpath>
         <formatter type="brief" usefile="false" />
+        <!-- Run all Java files in the test source directory that end with 'Test.java' -->
         <batchtest>
             <fileset dir="${test.src.dir}" includes="**/*Test.java" />
         </batchtest>
