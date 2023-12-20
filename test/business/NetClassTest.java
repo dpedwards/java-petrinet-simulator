@@ -4,36 +4,32 @@ import business.NetClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Scanner;
 
+/**
+ * Test class for NetClass.
+ * This class performs unit testing on methods of the NetClass class, 
+ * ensuring their functionality and correctness. Tests include checking the 
+ * generation of network sources, adding slashes to strings, and getting the 
+ * network source.
+ */
 public class NetClassTest {
     private NetClass netClass;
 
+    /**
+     * Sets up the test environment before each test.
+     * Initializes a new instance of NetClass.
+     */
     @Before
     public void setUp() {
         netClass = new NetClass();
     }
 
-    /*@Test
-    public void testCompile() {
-        String javaSource = "public class TestClass {}";
-        try {
-            netClass.compile(javaSource);
-        } catch (CompileException e) {
-            // Handle CompileException
-        } catch (Parser.ParseException e) {
-            // Handle ParseException
-        } catch (Scanner.ScanException e) {
-            // Handle ScanException
-        } catch (ClassNotFoundException e) {
-            // Handle ClassNotFoundException
-        } catch (InstantiationException e) {
-            // Handle InstantiationException
-        } catch (IllegalAccessException e) {
-            // Handle IllegalAccessException
-        }
-    }*/
+    // Test method for compile() is commented out. Uncomment and document if needed.
 
+    /**
+     * Tests the generateNetSource method of NetClass.
+     * Verifies that the method returns a non-null and non-empty string.
+     */
     @Test
     public void testGenerateNetSource() {
         String result = netClass.generateNetSource();
@@ -41,6 +37,11 @@ public class NetClassTest {
         assertFalse(result.isEmpty());
     }
 
+    /**
+     * Tests the addSlashes static method of NetClass.
+     * Verifies that the method correctly adds slashes to the input string.
+     * Note: The expected result needs to be updated based on the specific implementation.
+     */
     @Test
     public void testAddSlashes() {
         String input = "test";
@@ -48,16 +49,13 @@ public class NetClassTest {
         assertEquals(expected, NetClass.addSlashes(input));
     }
 
+    /**
+     * Tests the getNetSource method of NetClass.
+     * Verifies that the method returns a non-null StringBuffer instance.
+     */
     @Test
     public void testGetNetSource() {
         StringBuffer result = netClass.getNetSource();
         assertNotNull(result);
     }
-
-    /*@Test
-    public void testSetNetSource() {
-        StringBuffer input = new StringBuffer("test");
-        netClass.setNetSource(input);
-        assertEquals(input, netClass.getNetSource());
-    }*/
 }
