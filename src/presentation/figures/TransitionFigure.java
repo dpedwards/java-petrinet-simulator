@@ -9,6 +9,13 @@ import presentation.Grid;
 
 /**
  * Represents a graphical figure for a transition.
+ * The `TransitionFigure` class is an example of the Decorator design pattern. 
+ * This pattern is characterized by a class that 'decorates' or adds behavior to 
+ * instances of another class without affecting other instances of the same class.
+ * In this case, `TransitionFigure` extends `AbstractFigure`, 
+ * suggesting that it adds behavior to `AbstractFigure` instances. 
+ * It adds a `transitionId` and a `rectangle`, and provides methods for interacting with these new properties. 
+ * This is typical of the Decorator pattern.
  */
 public class TransitionFigure extends AbstractFigure {
 

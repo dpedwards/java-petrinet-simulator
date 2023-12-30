@@ -7,6 +7,11 @@ import java.awt.geom.GeneralPath;
 
 /**
  * Represents a grid that can be drawn on a graphical surface.
+ * The `Grid` class appears to be an example of the Builder design pattern. This pattern is used to construct complex objects step by step. 
+ * It separates the construction of an object from its representation so that the same construction process can create different representations.
+ * In this case, the `Grid` class has a constructor that sets the width and height of the grid. It also has a `generateGrid` method that creates 
+ * a `GeneralPath` object representing the grid. This method takes a parameter for the number of cells in the grid, suggesting that it can be 
+ * used to create grids of different sizes. This is typical of the Builder pattern.
  */
 public class Grid {
 

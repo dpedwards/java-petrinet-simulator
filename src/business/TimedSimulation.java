@@ -8,6 +8,14 @@ import presentation.GUI;
 /**
  * This class represents a timed simulation, extending the base Simulation class.
  * It introduces the concept of time and handles the execution of transitions based on time constraints.
+ * The `TimedSimulation` class is an example of the Template Method design pattern. 
+ * This pattern is characterized by an abstract class that defines a 'template' of operations, 
+ * some of which are implemented by the abstract class itself and some of which are left abstract, 
+ * to be implemented by subclasses.
+ * In this case, `TimedSimulation` is a subclass of `Simulation` and overrides the `run` and `isFinished` methods. 
+ * This suggests that `Simulation` provides a template for running a simulation, and `TimedSimulation` fills in 
+ * some of the details of this template by providing its own implementations of some methods. 
+ * This is typical of the Template Method pattern.
  */
 public class TimedSimulation extends Simulation {
 

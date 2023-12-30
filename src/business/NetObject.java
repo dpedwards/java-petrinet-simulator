@@ -3,6 +3,11 @@ package business;
 
 /**
  * Abstract class representing a net object.
+ * The NetObject class is an example of the Prototype design pattern. 
+ * This pattern involves creating objects based on a template of an existing object through cloning.
+ * In this case, NetObject is an abstract class that could be used as a prototype for creating other objects. 
+ * It has a constructor that assigns a unique ID to each new object, which is a common feature in prototypes. 
+ * The ID is incremented each time a new object is created, ensuring that each object has a unique identifier.
  */
 public abstract class NetObject {
 

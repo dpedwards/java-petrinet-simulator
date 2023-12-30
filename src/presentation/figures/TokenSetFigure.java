@@ -9,6 +9,12 @@ import java.awt.geom.Point2D;
 /**
  * Represents a graphical figure for displaying tokens in a place.
  * Extends TextFigure.
+ * The `TokenSetFigure` class is an example of the Decorator design pattern. 
+ * This pattern is characterized by a class that 'decorates' or adds behavior to 
+ * instances of another class without affecting other instances of the same class.
+ * In this case, `TokenSetFigure` extends `TextFigure`, suggesting that it adds behavior to 
+ * `TextFigure` instances. It adds a `placeId` and an `offsetToParent`, and provides methods for 
+ * interacting with these new properties. This is typical of the Decorator pattern.
  */
 public class TokenSetFigure extends TextFigure {
 

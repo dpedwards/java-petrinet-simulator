@@ -16,6 +16,15 @@ package business;
  * </p>
  * Concrete subclasses of `Arc` should implement specific arc behaviors and 
  * possibly override or extend the inherited behaviors from `NetObject`.
+ * 
+ * The class Arc is an example of the Template Method design pattern. 
+ * This pattern is characterized by an abstract class that defines a 'template' of operations, 
+ * some of which are implemented by the abstract class itself and some of which are left abstract, 
+ * to be implemented by subclasses.
+ * In this case, the Arc class is an abstract class that extends NetObject. 
+ * It provides a structure (or 'template') for an arc in a net-based structure, with some behaviors
+ * defined (like getting and setting the connected Place) and some behaviors left for concrete subclasses to implement. 
+ * This is typical of the Template Method pattern.
  */
 public abstract class Arc extends NetObject {
 

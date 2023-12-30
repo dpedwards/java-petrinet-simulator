@@ -25,8 +25,13 @@ import presentation.figures.PathPoint;
 import presentation.figures.TextFigure;
 
 /**
- * The SelectionManager class is responsible for managing the selection of
- * figures on a canvas.
+ * The SelectionManager class is responsible for managing the selection of figures on a canvas. 
+ * The `SelectionManager` class appears to be an example of the Observer design pattern. 
+ * This pattern is used when there is one-to-many relationship between objects such as if 
+ * one object is modified, its dependent objects are to be notified automatically.
+ * In this case, `SelectionManager` implements `MouseListener`, `MouseMotionListener`, 
+ * and `KeyListener` interfaces, suggesting that it observes mouse and key events. 
+ * When these events occur, the corresponding methods in `SelectionManager` are called, allowing it to respond to the events.
  */
 public class SelectionManager extends JComponent implements MouseListener, MouseMotionListener, KeyListener {
 

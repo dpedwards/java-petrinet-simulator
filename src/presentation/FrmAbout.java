@@ -2,13 +2,20 @@
 
 /*
  * FrmAbout.java
- *
+ * 
  *
  */
 package presentation;
 
 import java.awt.Toolkit;
 
+/**
+ * The FrmAbout class is an example of the Singleton design pattern.
+ * This pattern ensures that a class has only one instance and provides a global point of access to it.
+ * In this case, FrmAbout extends javax.swing.JDialog, suggesting that it represents a dialog window in 
+ * a graphical user interface. The constructor of FrmAbout is public, which is not typical of a Singleton, 
+ * but without seeing the full code, including how FrmAbout is used, it's not possible to definitively say that this is not a Singleton.
+ */
 public class FrmAbout extends javax.swing.JDialog {
 
     /** Creates new form FrmAbout */

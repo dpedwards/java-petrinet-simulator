@@ -3,6 +3,12 @@ package business;
 
 /**
  * Represents a Place in a Petri Net, which can contain tokens.
+ * The Place class is an example of the Composite design pattern. 
+ * This pattern is used when you need to treat a group of objects in the same way as a single instance of an object. 
+ * The Composite pattern composes objects into tree structures to represent part-whole hierarchies.
+ * In this case, Place is a component of the PetriNet composite object. 
+ * It extends NetObject and contains a TokenSet, which could be considered as a composite of Token objects. 
+ * The Place class provides methods for managing these tokens, which is typical of the Composite pattern.
  */
 public class Place extends NetObject {
 

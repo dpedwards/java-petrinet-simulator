@@ -22,6 +22,10 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
+/*
+ * The `FrmNetObject` class is a part of a class that declares a number of private Swing components, 
+ * which are typically used for building a GUI in Java
+ */
 public class FrmNetObject extends javax.swing.JDialog {
 
     private int currentTabIndex;
@@ -44,10 +48,10 @@ public class FrmNetObject extends javax.swing.JDialog {
             Place place = (Place) netObject;
             jList1.setVisible(true);
 
-            DefaultListModel model = new DefaultListModel();
-            Iterator it = place.getTokens().iterator();
+            DefaultListModel<Token> model = new DefaultListModel<>();
+            Iterator<Token> it = place.getTokens().iterator();
             while (it.hasNext()) {
-                Token token = (Token) it.next();
+                Token token = it.next();
                 model.addElement(token);
             }
             jList1.setModel(model);
@@ -140,7 +144,7 @@ public class FrmNetObject extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        jList1 = new javax.swing.JList<>();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();

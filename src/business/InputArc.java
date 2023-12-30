@@ -15,6 +15,14 @@ import java.util.Iterator;
  * Implementing the {@link Inscription} interface suggests that this class 
  * provides mechanisms to annotate or describe the behavior and properties 
  * of the arc, like the number of tokens needed for a transition.
+ * 
+ * The InputArc class is an example of the Decorator design pattern. 
+ * This pattern involves a set of decorator classes that are used to wrap concrete classes. 
+ * Decorators mirror the type of the objects they are decorating, they aren't just used to add, 
+ * or "decorate", the object they wrap with new behavior.
+ * In this case, InputArc extends Arc and implements Inscription, which suggests that it adds
+ * additional behavior (like handling inscriptions) to the base Arc functionality. 
+ * This is typical of the Decorator pattern.
  */
 public class InputArc extends Arc implements Inscription {
 

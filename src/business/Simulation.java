@@ -14,6 +14,12 @@ import presentation.GUI;
 
 /**
  * Represents a simulation thread that runs a Petri Net simulation.
+ * The Simulation class is an example of the Command design pattern. This pattern is characterized by objects that 
+ * encapsulate all the information needed to perform an action or trigger an event at a later time. 
+ * This information includes the method name, the object that owns the method, and values for the method parameters.
+ * In this case, Simulation is a thread that encapsulates the information needed to run a Petri Net simulation. 
+ * It has methods to start, pause, and stop the simulation, which are typical commands in this pattern. 
+ * The run method (not shown in the provided code) presumably executes the simulation, which is the action performed by this command.
  */
 public class Simulation extends Thread {
 

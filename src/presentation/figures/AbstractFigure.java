@@ -7,6 +7,12 @@ import java.awt.geom.RectangularShape;
 
 /**
  * An abstract class representing a basic figure with position, label, and appearance properties.
+ * The `AbstractFigure` class is an example of the Template Method design pattern. 
+ * This pattern is characterized by an abstract class that defines a 'template' of operations, 
+ * some of which are implemented by the abstract class itself and some of which are left abstract, to be implemented by subclasses.
+ * In this case, `AbstractFigure` provides a template for a figure with position, label, 
+ * and appearance properties. It provides fields for these properties and abstract methods `contains` and `draw` that must be implemented by subclasses. 
+ * This is typical of the Template Method pattern.
  */
 public abstract class AbstractFigure {
 

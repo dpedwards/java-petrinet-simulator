@@ -17,6 +17,13 @@ import java.util.Iterator;
  *
  * The class provides methods for checking whether the Petri Net has enabled transitions
  * and for accessing various lists of elements within the Petri Net.
+ * 
+ * The PetriNet class is an example of the Composite design pattern. 
+ * This pattern is used when you need to treat a group of objects in the same way as a single instance of an object. 
+ * The Composite pattern composes objects into tree structures to represent part-whole hierarchies.
+ * In this case, PetriNet is a composite object that contains collections of 
+ * Place, Transition, InputArc, and OutputArc objects, all of which extend NetObject. 
+ * The PetriNet class provides methods for managing these elements, which is typical of the Composite pattern.
  */
 public class PetriNet extends NetObject {
 

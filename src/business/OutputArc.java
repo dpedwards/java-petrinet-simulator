@@ -3,6 +3,12 @@ package business;
 
 /**
  * Represents an OutputArc, a type of arc that connects a Place to a Transition in a Petri Net.
+ * The OutputArc class is an example of the Decorator design pattern. 
+ * This pattern involves a set of decorator classes that are used to wrap concrete classes. 
+ * Decorators mirror the type of the objects they are decorating, they aren't just used to add, or "decorate", 
+ * the object they wrap with new behavior.
+ * In this case, OutputArc extends Arc and implements Inscription, which suggests that it adds
+ * additional behavior (like handling inscriptions) to the base Arc functionality. This is typical of the Decorator pattern.
  */
 public class OutputArc extends Arc implements Inscription {
 

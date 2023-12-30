@@ -6,6 +6,9 @@ package business;
  * with a PetriNet model. The class provides various modes to define the 
  * current application state, such as selection, place addition, transition 
  * addition, etc.
+ * 
+ * The Global class is an example of the Singleton design pattern. 
+ * This pattern ensures that a class has only one instance and provides a global point of access to it.
  */
 public class Global {
 

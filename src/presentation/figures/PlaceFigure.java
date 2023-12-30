@@ -9,6 +9,13 @@ import presentation.Grid;
 
 /**
  * Represents a graphical figure for a place in the Petri net.
+ * The `PlaceFigure` class is an example of the Decorator design pattern. 
+ * This pattern is characterized by a class that 'decorates' or adds behavior to 
+ * instances of another class without affecting other instances of the same class.
+ * In this case, `PlaceFigure` extends `AbstractFigure`, suggesting that it adds 
+ * behavior to `AbstractFigure` instances. It adds a `placeId`, an `ellipse`, 
+ * and a `tokenFigure` to the figure, and provides methods for interacting with these new properties. 
+ * This is typical of the Decorator pattern.
  */
 public class PlaceFigure extends AbstractFigure {
 

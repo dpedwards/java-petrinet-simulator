@@ -43,6 +43,12 @@ import presentation.figures.PathPoint;
 /**
  * This class represents the canvas for drawing and interacting with Petri Net
  * objects. It extends JPanel and implements various event listeners.
+ * The `Canvas` class is an example of the Factory Method design pattern. 
+ * This pattern is characterized by a method that handles the creation of objects.
+ * In this case, the `addFigure` method is a factory method that creates different types of 
+ * figures (`PlaceFigure`, `TransitionFigure`, `InputArc`, `OutputArc`) based on the `element` parameter. 
+ * The creation of these figures involves complex logic, including adding the figure to a global Petri Net
+ * model and storing it in a map, which is encapsulated in the `addFigure` method. This is typical of the Factory Method pattern.
  */
 public class Canvas extends javax.swing.JPanel
         implements MouseListener, MouseMotionListener, MouseWheelListener, KeyListener {

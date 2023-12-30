@@ -8,6 +8,13 @@ package presentation;
 
 import business.Token;
 
+/**
+ * The `FrmNewToken` class is an example of the Dialog design pattern. 
+ * This pattern is a type of behavioral pattern which provides a user with a simple yes-or-no choice. 
+ * It's a simple question-answer interface provided to the user on the screen.
+ * In this case, `FrmNewToken` extends `javax.swing.JDialog`, suggesting that it represents a dialog window in a graphical user interface. 
+ * The constructor of `FrmNewToken` initializes the dialog and its components, and it appears to have a "Save" button, which is typical of a Dialog pattern.
+ */
 public class FrmNewToken extends javax.swing.JDialog {
 
     private Token token;

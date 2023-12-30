@@ -6,6 +6,15 @@ import presentation.GUI;
 
 /**
  * Represents a transition in the Petri Net.
+ * The `Transition` class is an example of the Command design pattern. 
+ * This pattern is characterized by objects that encapsulate all the information needed
+ * to perform an action or trigger an event at a later time. 
+ * This information includes the method name, the object that owns the method, 
+ * and values for the method parameters.
+ * In this case, `Transition` encapsulates the information needed to fire a transition in a Petri Net simulation. 
+ * The `fire` method is the command that performs this action. 
+ * It uses the state of the `Transition` object (including its `id` and `guardText`) and 
+ * the parameters passed to it (`gui` and `globalClock`) to perform the action.
  */
 public class Transition extends NetObject implements Inscription {
 

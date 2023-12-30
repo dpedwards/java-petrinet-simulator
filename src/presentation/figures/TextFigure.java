@@ -11,6 +11,13 @@ import java.awt.geom.Rectangle2D;
 
 /**
  * Represents a text figure associated with another figure.
+ * The `TextFigure` class is an example of the Decorator design pattern. 
+ * This pattern is characterized by a class that 'decorates' or adds behavior to 
+ * instances of another class without affecting other instances of the same class.
+ * In this case, `TextFigure` extends `AbstractFigure`, suggesting that it adds behavior to 
+ * `AbstractFigure` instances. It adds a `parent` figure and an `offsetToParent`, 
+ * and provides methods for interacting with these new properties. 
+ * This is typical of the Decorator pattern.
  */
 public class TextFigure extends AbstractFigure {
 

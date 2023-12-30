@@ -6,6 +6,14 @@ package presentation;
 import java.awt.Toolkit;
 import business.Simulation;
 
+/**
+ * The `FrmAnimationOptions` class is an example of the Singleton design pattern. 
+ * This pattern ensures that a class has only one instance and provides a global point of access to it.
+ * In this case, `FrmAnimationOptions` extends `javax.swing.JDialog`, suggesting that it represents a 
+ * dialog window in a graphical user interface. The constructor of `FrmAnimationOptions` is public, 
+ * which is not typical of a Singleton, but without seeing the full code, including how `FrmAnimationOptions` is used, 
+ * it's not possible to definitively say that this is not a Singleton.
+ */
 public class FrmAnimationOptions extends javax.swing.JDialog {
 
     /** Creates new form AnimationOptions */

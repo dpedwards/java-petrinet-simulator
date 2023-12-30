@@ -15,6 +15,14 @@ import presentation.Grid;
 /**
  * An abstract class representing a figure for connections between two figures.
  * Extends {@link AbstractFigure} and implements {@link ConnectionFigure}.
+ * The `AbstractArcFigure` class is an example of the Bridge design pattern. 
+ * This pattern is characterized by an abstraction, in this case `AbstractArcFigure`, 
+ * which defines the abstract idea of a figure, and an implementation, 
+ * in this case the classes that extend `AbstractArcFigure`, which provide concrete implementations of this abstraction.
+ * In this case, `AbstractArcFigure` extends `AbstractFigure` and implements `ConnectionFigure`, 
+ * suggesting that it provides a bridge between these two interfaces. 
+ * It provides fields and presumably methods (not shown in the provided code) that are common to all arc figures,
+ * and leaves the details to be filled in by subclasses.
  */
 public abstract class AbstractArcFigure extends AbstractFigure implements ConnectionFigure {
 

@@ -14,6 +14,12 @@ import org.codehaus.janino.SimpleCompiler;
 
 /**
  * Represents a class for generating PetriNet model source code.
+ * The NetClass class is an example of the Builder design pattern. 
+ * This pattern is used to construct a complex object step by step and the final step will return the object. 
+ * The process of constructing an object should be generic so that it can create different representations of the same configuration.
+ * In this case, NetClass is used to build a PetriNet object. 
+ * The generateNetSource method (not shown in the provided code) presumably builds up the netSource string, 
+ * which is then compiled into a PetriNet object in the compile method. This is typical of the Builder pattern.
  */
 public class NetClass {
 

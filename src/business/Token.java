@@ -3,6 +3,11 @@ package business;
 
 /**
  * Represents a Token in a network or system, with properties for its color, timestamp, and initial marking expression.
+ * The `Token` class is an example of the Builder design pattern. 
+ * This pattern is used to construct a complex object step by step and the final step will return the object. 
+ * The process of constructing an object should be generic so that it can create different representations of the same configuration.
+ * In this case, `Token` uses constructor overloading to build a `Token` object in steps. 
+ * Each constructor calls the one before it, adding one more parameter each time. This is typical of the Builder pattern.
  */
 public class Token {
 

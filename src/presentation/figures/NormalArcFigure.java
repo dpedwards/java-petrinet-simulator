@@ -11,6 +11,12 @@ import java.awt.geom.Rectangle2D;
 
 /**
  * Represents a edge aka the normal arc figure that extends AbstractArcFigure and defines its behavior.
+ * The `NormalArcFigure` class is an example of the Template Method design pattern. 
+ * This pattern is characterized by an abstract class that defines a 'template' of operations, 
+ * some of which are implemented by the abstract class itself and some of which are left abstract, to be implemented by subclasses.
+ * In this case, `NormalArcFigure` is a subclass of `AbstractArcFigure` and provides a concrete implementation of the `contains` method, 
+ * which is presumably abstract in `AbstractArcFigure`. This suggests that `AbstractArcFigure` provides a template for a figure, 
+ * and `NormalArcFigure` fills in some of the details of this template. This is typical of the Template Method pattern.
  */
 public class NormalArcFigure extends AbstractArcFigure {
 

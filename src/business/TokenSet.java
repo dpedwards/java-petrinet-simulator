@@ -8,6 +8,12 @@ import java.util.Iterator;
 
 /**
  * This class represents a set of tokens and provides various operations on tokens.
+ * The TokenSet class is an example of the Composite design pattern. 
+ * This pattern is used when you need to treat a group of objects in the same way as a single instance of an object. 
+ * The Composite pattern composes objects into tree structures to represent part-whole hierarchies.
+ * In this case, TokenSet is a composite object that contains a collection of Token objects. 
+ * It extends AbstractCollection<Token>, which means it can be treated like any other collection of Token objects. 
+ * The TokenSet class provides methods for managing these tokens, which is typical of the Composite pattern.
  */
 public class TokenSet extends AbstractCollection<Token> {
 

@@ -54,6 +54,10 @@ import presentation.figures.TransitionFigure;
 /**
  * FileManager handles the reading and writing of Petri Net data 
  * in XML format and provides methods for image saving.
+ * The FileManager class is an example of the Factory Method design pattern. 
+ * This pattern is characterized by a method that handles the creation of objects.
+ * In this case, the createGraphic method is a factory method that creates an Element object representing a graphical figure. 
+ * The type of Element created depends on the type of AbstractFigure passed to the method. This is typical of the Factory Method pattern.
  */
 public class FileManager {
 

@@ -6,6 +6,13 @@
  */
 package presentation;
 
+/**
+ * The `FrmViewSource` class is an example of the Dialog design pattern. 
+ * This pattern is a type of behavioral pattern which provides a user with an interface to interact with. 
+ * In this case, `FrmViewSource` extends `javax.swing.JDialog`, suggesting that it represents a dialog window
+ * in a graphical user interface. The constructor of `FrmViewSource` initializes the dialog and its components, 
+ * and it appears to display some source code to the user, which is typical of a Dialog pattern.
+ */
 public class FrmViewSource extends javax.swing.JDialog {
 
     /** Creates new form FrmViewSource */

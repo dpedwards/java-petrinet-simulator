@@ -3,6 +3,11 @@ package presentation.figures;
 
 /**
  * An interface for figures that represent connections between two abstract figures.
+ * The `ConnectionFigure` is an interface in Java, not a class. However, it can be part of the Bridge design pattern. 
+ * The Bridge pattern is characterized by the separation of an abstraction from its implementation so that the two can vary independently.
+ * In this case, `ConnectionFigure` defines a common interface for a family of figures that represent connections between two abstract figures. 
+ * The methods defined in the interface (`setConnectionStart`, `getStartConnector`, `setConnectionEnd`, `getEndConnector`) 
+ * are typical of the Bridge pattern, as they provide a bridge between the abstract concept of a connection and its concrete implementation.
  */
 public interface ConnectionFigure {
 

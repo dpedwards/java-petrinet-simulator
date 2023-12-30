@@ -10,6 +10,11 @@ import java.awt.geom.RectangularShape;
 /**
  * This class represents a point on a path. It extends AbstractFigure and provides methods
  * for drawing and interacting with path points.
+ * The `PathPoint` class is an example of the Composite design pattern. 
+ * This pattern is used when you need to treat a group of objects in the same way as a single instance of an object. 
+ * The Composite pattern composes objects into tree structures to represent part-whole hierarchies.
+ * In this case, `PathPoint` extends `AbstractFigure`, suggesting that it can be treated like any other figure. 
+ * It provides methods for interacting with path points, such as `contains`, which is typical of the Composite pattern.
  */
 public class PathPoint extends AbstractFigure {
 

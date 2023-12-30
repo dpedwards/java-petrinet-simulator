@@ -30,6 +30,14 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 
+/**
+ * The provided code snippet appears to be part of a larger class that uses the Command design pattern. 
+ * This pattern encapsulates a request as an object, thereby letting you parameterize clients with queues, 
+ * requests, operations, and also allows you to support undoable operations.
+ * In this case, the Command pattern is implemented using `ActionListener` objects that are associated with
+ * different buttons (`btnPlace`, `btnTransition`, `btnNormalArc`, `btnPlay`). 
+ * When a button is clicked, the corresponding `ActionListener`'s `actionPerformed` method is called, executing the associated command.
+ */
 public class GUI extends javax.swing.JFrame {
 
     /** The simulator thread*/
