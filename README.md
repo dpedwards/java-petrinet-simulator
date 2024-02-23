@@ -3,36 +3,31 @@
 [![JUnit](https://img.shields.io/badge/JUnit-%204-orange.svg)](https://junit.org/junit5/)
 # Assignment im Modul SWE20
 
-## Entwicklung einer Java-Anwendung mit GUI zur Simulation und graphischen Auswertung von Petri-Netze
+## Java application with GUI for simulation and graphical analysis of Petri Nets.
 -------------------------------------------------------
-## [Langtitel: Petri-Netze]()
-_Es ist ein einfacher Petri-Netz-Simulator zu entwickeln und zu implementieren. Hierbei sind_
-
-- _GUI_
+## [Petri Nets]()
+- _GUI (Graphical User Interface)_
 - _Simulator_
-- _Graphische Auswertung_
+- _Graphical Analysis_
 
 -------------------------------------------------------
 
 
-## Programmausführung
+## Program Execution
 ### NetBeans
-DAS PROJEKT SETZT VOLLSTÄNDIG AUF DIE `NETBEANS` IDE UM AUCH DIE GUI ZU EDITIEREN.
+THE PROJECT FULLY RELIES ON THE NETBEANS IDE, INCLUDING THE EDITING OF THE GUI.
 [DOWNLOAD](https://netbeans.apache.org/download/index.html)
 
 ### Visual Studio Code
-ES EMPFIEHLT SICH AUCH DIE JAVA-ANWENDUNG MIT `VISUAL STUDIO CODE` ZU STARTEN. ALLE NÖTIGEN ABHÄNGIGKEITEN ZUM [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) WERDEN DANN AUTOMATISCH VON VISUAL STUDIO CODE INSTALLIERT.
+IT IS ALSO RECOMMENDED TO LAUNCH THE JAVA APPLICATION WITH VISUAL STUDIO CODE. ALL NECESSARY DEPENDENCIES FOR THE Extension Pack for Java WILL BE AUTOMATICALLY INSTALLED BY VISUAL STUDIO CODE.
 ![](2.png)
 
-NACH ERFOLGREICHER INSTALLATION ALLER JAVA-PROJEKTABHÄNGIGKEITEN KANN DER PETRI-NETZ-SIMULATOR NACH AUSWAHL DER GUI.JAVA KLASSE SOWIE DAS AUSFÜHREN DES ,,RUN JAVA" VORGANGS IN VSC GESTARTET WERDEN.
+AFTER SUCCESSFULLY INSTALLING ALL JAVA PROJECT DEPENDENCIES, THE PETRI NET SIMULATOR CAN BE STARTED BY CHOOSING THE GUI.JAVA CLASS AND EXECUTING THE "RUN JAVA" OPERATION IN VSC.
 ![](8.png) [DOWNLOAD](https://code.visualstudio.com/)
 
 
-
-
-
 -------------------------------------------------------
-## [UML Diagramme]()
+## [UML Diagrams]()
 ![uml_diagram_large](assets/uml-diagram/uml_diagram_large.png)
 ![combined_detailed_class_diagram](assets/uml-diagram/combined_detailed_class_diagram.png)
 -------------------------------------------------------
@@ -245,14 +240,9 @@ GNU General Public License Version 3
 
 Copyright (c) 2024 Davain Pablo Edwards
 
-Dieses Programm ist freie Software: Sie können es unter den Bedingungen
-der GNU General Public License, wie von der Free Software Foundation,
-Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
-veröffentlichten Version, weitergeben und/oder modifizieren.
 
- Dieses Programm wird in der Hoffnung, dass es nützlich sein wird, aber
- OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
- Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
- Siehe die GNU General Public License für weitere Details.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
- Für weitere Informationen zur Lizens, siehe <http://www.gnu.org/licenses/>.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+For further information regarding the license, please see: <http://www.gnu.org/licenses/>.
