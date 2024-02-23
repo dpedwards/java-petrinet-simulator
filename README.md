@@ -1,7 +1,8 @@
 [![Java](https://img.shields.io/badge/java-%2019-brown.svg)](https://www.java.com/de/download/faq/java19.xml)
 [![Apache Ant](https://img.shields.io/badge/Apache%20Ant-%20violet.svg)](https://ant.apache.org/)
 [![JUnit](https://img.shields.io/badge/JUnit-%204-orange.svg)](https://junit.org/junit5/)
-# Assignment im Modul SWE20
+
+#  SOFTWARE ENGINEERING ASSIGNMENT (SWE20)
 
 ## Java application with GUI for simulation and graphical analysis of Petri Nets.
 -------------------------------------------------------
