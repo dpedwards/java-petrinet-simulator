@@ -1,4 +1,4 @@
-package test.business;
+package business;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package test.business;
+package business;
 
 import business.NetClass;
 import org.junit.Before;

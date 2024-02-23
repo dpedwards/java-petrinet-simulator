@@ -1,8 +1,6 @@
-package test.business;
+package business;
 
 import org.junit.Test;
-import business.Arc;
-import business.Place;
 import static org.junit.Assert.*;
 
 /**
