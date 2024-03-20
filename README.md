@@ -26,8 +26,11 @@ IT IS ALSO RECOMMENDED TO LAUNCH THE JAVA APPLICATION WITH VISUAL STUDIO CODE. A
 AFTER SUCCESSFULLY INSTALLING ALL JAVA PROJECT DEPENDENCIES, THE PETRI NET SIMULATOR CAN BE STARTED BY CHOOSING THE GUI.JAVA CLASS AND EXECUTING THE "RUN JAVA" OPERATION IN VSC.
 ![](8.png) [DOWNLOAD](https://code.visualstudio.com/)
 
-
 -------------------------------------------------------
+## [UI]
+![image](https://github.com/dpedwards/java-petrinet-simulator/assets/2211088/3d2eabd2-b877-476b-bd50-33aa17340758)
+
+
 ## [UML Diagrams]()
 ![uml_diagram_large](assets/uml-diagram/uml_diagram_large.png)
 ![combined_detailed_class_diagram](assets/uml-diagram/combined_detailed_class_diagram.png)
