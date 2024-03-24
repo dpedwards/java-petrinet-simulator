@@ -27,15 +27,15 @@ AFTER SUCCESSFULLY INSTALLING ALL JAVA PROJECT DEPENDENCIES, THE PETRI NET SIMUL
 ![](8.png) [DOWNLOAD](https://code.visualstudio.com/)
 
 -------------------------------------------------------
-## [UI]
+## UI
 ![image](https://github.com/dpedwards/java-petrinet-simulator/assets/2211088/3d2eabd2-b877-476b-bd50-33aa17340758)
 
 
-## [UML Diagrams]()
+## UML Diagrams
 ![uml_diagram_large](assets/uml-diagram/uml_diagram_large.png)
 ![combined_detailed_class_diagram](assets/uml-diagram/combined_detailed_class_diagram.png)
 -------------------------------------------------------
-## [Ant Projektstruktur]()
+## Ant Projektstruktur
 ```
 java-petrinet-simulator-gui
 ├─ .git
@@ -216,8 +216,13 @@ java-petrinet-simulator-gui
 
 ## [Dependencies]()
 
+- [byte-buddy]()
+- [byte-buddy-agent]()
+- [hamcrest-core]()
 - [janino](https://repo1.maven.org/maven2/org/codehaus/janino/janino/3.1.4/) 
-- [junit](https://junit.org/junit5/) v5.6.0
+- [junit](https://junit.org/junit4/)
+- [mockito-core]()
+- [objenesis]()
 
 ## [Build]()
 
